@@ -4,21 +4,28 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 
 public class LibExtrasStreams {
+
+	public static String readStream(InputStream in) throws IOException {
+
+		int read = 0;
+		String out = "";
+		byte[] buff = new byte[256];
+		while ((read = in.read(buff)) > 0) {
+			out += new String(buff, 0, read);
+		}
+		in.close();
+
+		return out;
+	}
 
 	public static String readFile(File f) throws IOException {
 
 		try (FileInputStream fis = new FileInputStream(f)) {
 
-			int read = 0;
-			String out = "";
-			byte[] buff = new byte[256];
-			while ((read = fis.read(buff)) > 0) {
-				out += new String(buff, 0, read);
-			}
-
-			return out;
+			return readStream(fis);
 		} catch (IOException e) {
 			throw e;
 		}

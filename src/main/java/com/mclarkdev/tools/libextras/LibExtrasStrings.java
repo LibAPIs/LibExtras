@@ -5,6 +5,22 @@ import java.security.MessageDigest;
 
 public class LibExtrasStrings {
 
+	/**
+	 * Generate an MD5 checksum of the given string.
+	 * 
+	 * @param in raw data
+	 * @return md5 checksum
+	 */
+	public static String generateChecksum(String in) {
+		return generateChecksum(in.getBytes());
+	}
+
+	/**
+	 * Generate an MD5 checksum of the given byte array.
+	 * 
+	 * @param in raw data
+	 * @return md5 checksum
+	 */
 	public static String generateChecksum(byte[] in) {
 
 		try {
@@ -21,8 +37,9 @@ public class LibExtrasStrings {
 	 * Pad a number with leading zeros such that the entire number is equal to the
 	 * given character count.
 	 * 
-	 * @param num
-	 * @return
+	 * @param num       root number
+	 * @param charCount number of characters desired
+	 * @return zero padded number
 	 */
 	public static String leadingZeros(int num, int charCount) {
 
@@ -46,8 +63,8 @@ public class LibExtrasStrings {
 	/**
 	 * Convert a byte array to a hexadecimal string.
 	 * 
-	 * @param bytes
-	 * @return
+	 * @param bytes raw data
+	 * @return data as a HEX string
 	 */
 	public static String bytesToHex(byte[] bytes) {
 
@@ -72,8 +89,8 @@ public class LibExtrasStrings {
 	/**
 	 * Convert a hexadecimal string to a byte array.
 	 * 
-	 * @param s
-	 * @return
+	 * @param s data as a HEX string
+	 * @return raw data
 	 */
 	public static byte[] hexToBytes(String s) {
 
@@ -94,8 +111,8 @@ public class LibExtrasStrings {
 	/**
 	 * Reverse a string.
 	 * 
-	 * @param string
-	 * @return
+	 * @param string input string
+	 * @return reversed string
 	 */
 	public static String reverseString(String string) {
 
@@ -105,24 +122,21 @@ public class LibExtrasStrings {
 	/**
 	 * Reverse a string with a given group count of characters.
 	 * 
-	 * @param string
-	 * @param groupCount
-	 * @return
+	 * @param string     input string
+	 * @param groupCount number of characters to group
+	 * @return reversed string
 	 */
 	public static String reverseString(String string, int groupCount) {
 
 		if (string == null) {
-
 			throw new IllegalArgumentException("Input can not be null.");
 		}
 
 		if (groupCount <= 0) {
-
 			throw new IllegalArgumentException("Group count must be a positive integer.");
 		}
 
 		if (string.length() % groupCount != 0) {
-
 			throw new IllegalArgumentException("Invalid group count for specified string.");
 		}
 
@@ -138,8 +152,8 @@ public class LibExtrasStrings {
 	/**
 	 * Returns true if the provided string is Base64 encoded.
 	 * 
-	 * @param s
-	 * @return
+	 * @param s input string
+	 * @return input is base64 encoded
 	 */
 	public static boolean isBase64(String s) {
 

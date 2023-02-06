@@ -14,3 +14,6 @@ Include the library in your project by adding the following dependency to your p
 </dependency>
 ```
 
+# License
+
+Free for everyone. ❤

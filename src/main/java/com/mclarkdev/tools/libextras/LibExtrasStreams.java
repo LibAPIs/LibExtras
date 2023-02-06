@@ -8,6 +8,13 @@ import java.io.InputStream;
 
 public class LibExtrasStreams {
 
+	/**
+	 * Read a complete InputSteam for its contents.
+	 * 
+	 * @param in the input stream
+	 * @return the data read
+	 * @throws IOException failure opening stream
+	 */
 	public static String readStream(InputStream in) throws IOException {
 
 		int read = 0;
@@ -21,6 +28,13 @@ public class LibExtrasStreams {
 		return out;
 	}
 
+	/**
+	 * Read a complete File for its contents.
+	 * 
+	 * @param f the input file
+	 * @return the data read
+	 * @throws IOException failure opening file
+	 */
 	public static String readFile(File f) throws IOException {
 
 		try (FileInputStream fis = new FileInputStream(f)) {
@@ -31,6 +45,13 @@ public class LibExtrasStreams {
 		}
 	}
 
+	/**
+	 * Write the given contents to a file.
+	 * 
+	 * @param f the output file
+	 * @param b the data to write
+	 * @throws IOException failure writing file
+	 */
 	public static void writeFile(File f, byte[] b) throws IOException {
 
 		try (FileOutputStream s = new FileOutputStream(f)) {

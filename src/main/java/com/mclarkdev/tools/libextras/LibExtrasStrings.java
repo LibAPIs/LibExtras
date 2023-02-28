@@ -1,37 +1,7 @@
 
 package com.mclarkdev.tools.libextras;
 
-import java.security.MessageDigest;
-
 public class LibExtrasStrings {
-
-	/**
-	 * Generate an MD5 checksum of the given string.
-	 * 
-	 * @param in raw data
-	 * @return md5 checksum
-	 */
-	public static String generateChecksum(String in) {
-		return generateChecksum(in.getBytes());
-	}
-
-	/**
-	 * Generate an MD5 checksum of the given byte array.
-	 * 
-	 * @param in raw data
-	 * @return md5 checksum
-	 */
-	public static String generateChecksum(byte[] in) {
-
-		try {
-
-			MessageDigest md = MessageDigest.getInstance("MD5");
-			return bytesToHex(md.digest(in));
-		} catch (Exception e) {
-
-			return null;
-		}
-	}
 
 	/**
 	 * Pad a number with leading zeros such that the entire number is equal to the

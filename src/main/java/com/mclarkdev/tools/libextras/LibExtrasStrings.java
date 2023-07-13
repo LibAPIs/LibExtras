@@ -3,6 +3,9 @@ package com.mclarkdev.tools.libextras;
 
 public class LibExtrasStrings {
 
+	public static final String PATTERN_B64 = "^([A-Za-z0-9+/]{4})*([A-Za-z0-9+/]{4}|[A-Za-z0-9+/]{3}=|[A-Za-z0-9+/]{2}==)$";
+	public static final String PATTERN_IP = "^((25[0-5]|(2[0-4]|1\\d|[1-9]|)\\d)\\.?\\b){4}$";
+
 	/**
 	 * Pad a number with leading zeros such that the entire number is equal to the
 	 * given character count.
@@ -127,7 +130,17 @@ public class LibExtrasStrings {
 	 */
 	public static boolean isBase64(String s) {
 
-		String pattern = "^([A-Za-z0-9+/]{4})*([A-Za-z0-9+/]{4}|[A-Za-z0-9+/]{3}=|[A-Za-z0-9+/]{2}==)$";
-		return s.matches(pattern);
+		return s.matches(PATTERN_B64);
+	}
+
+	/**
+	 * Returns true if the provided string is an IP address.
+	 * 
+	 * @param s input string
+	 * @return input is an IP address
+	 */
+	public static boolean isIPAddress(String s) {
+
+		return s.matches(PATTERN_IP);
 	}
 }

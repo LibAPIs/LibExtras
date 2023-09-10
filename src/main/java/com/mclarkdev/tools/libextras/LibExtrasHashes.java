@@ -2,6 +2,11 @@ package com.mclarkdev.tools.libextras;
 
 import java.security.MessageDigest;
 
+/**
+ * LibExtras // LibExtrasHashes
+ * 
+ * A collection of tools for generating checksums.
+ */
 public class LibExtrasHashes {
 
 	/**

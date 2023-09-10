@@ -6,6 +6,11 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 
+/**
+ * LibExtras // LibExtrasStreams
+ * 
+ * A collection of tools for working with Streams.
+ */
 public class LibExtrasStreams {
 
 	/**

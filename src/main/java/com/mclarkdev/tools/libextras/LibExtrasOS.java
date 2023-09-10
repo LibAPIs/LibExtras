@@ -6,12 +6,17 @@ import java.lang.management.ManagementFactory;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 
+/**
+ * LibExtras // LibExtrasOS
+ * 
+ * A collection of tools for working with the Operating System.
+ */
 public class LibExtrasOS {
 
 	/**
 	 * Returns the system host-name.
 	 * 
-	 * @return
+	 * @return system hostname
 	 */
 	public static String getHostname() {
 
@@ -27,7 +32,7 @@ public class LibExtrasOS {
 	/**
 	 * Get the home directory of the user.
 	 * 
-	 * @return
+	 * @return user home directory
 	 */
 	public static String userHome() {
 
@@ -37,17 +42,29 @@ public class LibExtrasOS {
 	/**
 	 * Returns true if running in a Windows environment.
 	 * 
-	 * @return
+	 * @return running on Windows
 	 */
 	public static boolean isWindows() {
 
-		return System.getProperty("os.name").matches("Windows.*");
+		String os = System.getProperty("os.name").toLowerCase();
+		return os.contains("windows");
+	}
+
+	/**
+	 * Returns true if running in a MacOS environment.
+	 * 
+	 * @return running on MacOS
+	 */
+	public static boolean isMacOS() {
+
+		String os = System.getProperty("os.name").toLowerCase();
+		return (os.contains("mac") || os.contains("darwin"));
 	}
 
 	/**
 	 * Returned true if running on an x64 JVM, false if x86.
 	 * 
-	 * @return
+	 * @return running as x86_64
 	 */
 	public static boolean isX86_64() {
 
@@ -56,6 +73,10 @@ public class LibExtrasOS {
 
 	/**
 	 * Writes a PID file to the specified path.
+	 * 
+	 * @param pidPath path of PID file
+	 * @param pidFile name of PID file
+	 * @return the PID file
 	 */
 	public static File writePIDFile(String pidPath, String pidFile) {
 
@@ -87,7 +108,7 @@ public class LibExtrasOS {
 	/**
 	 * Gets the current PID.
 	 * 
-	 * @return
+	 * @return current PID
 	 */
 	public static int getPID() {
 
@@ -105,6 +126,11 @@ public class LibExtrasOS {
 		return -1;
 	}
 
+	/**
+	 * Returns true if the current environment supports signals.
+	 * 
+	 * @return signals supported
+	 */
 	public static boolean supportsSignals() {
 
 		if (isWindows()) {

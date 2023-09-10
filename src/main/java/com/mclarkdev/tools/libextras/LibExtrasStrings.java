@@ -1,9 +1,21 @@
 
 package com.mclarkdev.tools.libextras;
 
+/**
+ * LibExtras // LibExtrasStrings
+ * 
+ * A collection of tools for working with Strings.
+ */
 public class LibExtrasStrings {
 
+	/**
+	 * Pattern to match against BASE64 strings
+	 */
 	public static final String PATTERN_B64 = "^([A-Za-z0-9+/]{4})*([A-Za-z0-9+/]{4}|[A-Za-z0-9+/]{3}=|[A-Za-z0-9+/]{2}==)$";
+
+	/**
+	 * Pattern to match against IPv4 addresses
+	 */
 	public static final String PATTERN_IP = "^((25[0-5]|(2[0-4]|1\\d|[1-9]|)\\d)\\.?\\b){4}$";
 
 	/**
@@ -18,7 +30,7 @@ public class LibExtrasStrings {
 
 		if (num < 0 || charCount < 0) {
 
-			throw new IllegalArgumentException("supports positive numbers only");
+			throw new IllegalArgumentException("Supports positive numbers only.");
 		}
 
 		String numString = Integer.toString(num);
@@ -43,7 +55,7 @@ public class LibExtrasStrings {
 
 		if (bytes == null) {
 
-			throw new IllegalArgumentException("supplied value cannot be null");
+			throw new IllegalArgumentException("Supplied value cannot be null.");
 		}
 
 		char[] hexArray = "0123456789ABCDEF".toCharArray();
@@ -69,7 +81,7 @@ public class LibExtrasStrings {
 
 		if (s == null) {
 
-			throw new IllegalArgumentException("input cannot be null");
+			throw new IllegalArgumentException("Input cannot be null.");
 		}
 
 		int len = s.length();
@@ -139,7 +151,7 @@ public class LibExtrasStrings {
 	 * @param s input string
 	 * @return input is an IP address
 	 */
-	public static boolean isIPAddress(String s) {
+	public static boolean isIPv4Address(String s) {
 
 		return s.matches(PATTERN_IP);
 	}
